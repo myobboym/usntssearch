@@ -426,7 +426,7 @@ class ApiResponses:
 
 				#~ non CP request generate might errors if no url is found in the permalink
 				if(self.typesearch != 0):
-					niceResults_row['encodedurl'] = 'http://bogus.gu/bog'
+					niceResults_row['encodedurl'] = results[i]['url']
 					
 				niceResults.append(	niceResults_row)
 							
