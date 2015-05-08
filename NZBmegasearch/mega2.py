@@ -256,13 +256,13 @@ def rss():
 	if(len(cfgsets.cgen['general_apikey'])):
 		if('apikey' in request.args):
 			if(request.args['apikey'] == cfgsets.cgen['general_apikey']):
-				return apiresp.dosearch_rss(request.args, urlparse(request.url))
+				return apiresp.dosearch_rss(request.args, urlparse(request.url)), 200, {'Content-Type':'application/rss+xml'}
 			else:	
 				return '[API key protection ACTIVE] Wrong key selected'
 		else:	
 				return '[API key protection ACTIVE] API key required'
 	else:
-		return apiresp.dosearch_rss(request.args, urlparse(request.url))
+		return apiresp.dosearch_rss(request.args, urlparse(request.url)), 200, {'Content-Type':'application/rss+xml'}
 
 
 #~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
